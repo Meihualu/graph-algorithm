@@ -21,6 +21,7 @@ public class PageRankJob {
 		for (int i = 0; i < 10; i++) {
 			System.out.println("iteration id=" + i);
 			Job job = new Job(conf, "MapReduce PageRank");
+			// 本次迭代的输出目录作为下次的输入目录
 			pathOut = pathIn + i;
 			job.setJarByClass(PageRankJob.class);
 			job.setMapperClass(PageRankMapper.class);
